@@ -28,4 +28,38 @@ impl TodoList {
         }
 
      }
+
+    pub fn get_todo_by_id(&self, id : u64) -> Option<&Todo> {
+    
+        for element in self.list.iter(){
+            if element.id == id {
+               return Some(&element);
+            
+            }
+        }
+        None
+    }
+
+    pub fn delete_todo_by_id(&mut self, id : u64)  {
+        let element = self.get_todo_by_id(id);
+        
+        let result = match element {
+            Some(x) => x.id,
+            None => 0 as u64,
+        };
+
+        if result == 0 {
+            println!("Item was not found!");
+           
+        }else {
+            let result = (result -1) as usize;
+            println!("Remove item at position {}",result);
+            self.list.remove(result);
+        }
+
+
+
+        
+    }
+
 }
