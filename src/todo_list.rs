@@ -1,4 +1,6 @@
 use crate::todo::Todo;
+use json;
+
 
 pub struct TodoList {
     pub list: Vec<Todo>
@@ -6,7 +8,7 @@ pub struct TodoList {
 
 impl TodoList {
 
-    pub fn create() -> TodoList {
+    pub fn new() -> TodoList {
         TodoList {
             list : Vec::new()
         }
@@ -29,6 +31,12 @@ impl TodoList {
 
      }
 
+     pub fn print_todo_list_reverse(&self) {
+         for element in self.list.iter().rev(){
+            element.print_todo();
+         }
+     }
+
     pub fn get_todo_by_id(&self, id : u64) -> Option<&Todo> {
     
         for element in self.list.iter(){
@@ -38,6 +46,10 @@ impl TodoList {
             }
         }
         None
+    }
+
+    pub fn len(&self) -> usize {
+        self.list.len()
     }
 
     pub fn delete_todo_by_id(&mut self, id : u64)  {
@@ -55,11 +67,8 @@ impl TodoList {
             let result = (result -1) as usize;
             println!("Remove item at position {}",result);
             self.list.remove(result);
-        }
-
-
-
-        
+        }  
     }
+    
 
 }

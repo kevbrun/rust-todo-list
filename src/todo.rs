@@ -6,7 +6,7 @@
     }
     
     impl Todo {
-        pub fn create(id:u64, name: String, description: String) -> Todo{
+        pub fn new(id:u64, name: String, description: String) -> Todo{
             Todo {
                 id: id,
                 name: name,
