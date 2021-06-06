@@ -1,3 +1,5 @@
+    use rand::prelude::*;
+
     #[derive(Clone)]
     pub struct Todo {
         pub id: u64,
@@ -6,9 +8,9 @@
     }
     
     impl Todo {
-        pub fn new(id:u64, name: String, description: String) -> Todo{
+        pub fn new(name: String, description: String) -> Todo{
             Todo {
-                id: id,
+                id: generate_random_id(),
                 name: name,
                 description: description
             }
@@ -19,6 +21,12 @@
             println!("id: {id} | name: {name} | description: {desc}",id = self.id,name = self.name, desc = self.description)
         }
 
+    }
+
+    fn generate_random_id() -> u64{
+        let mut rng = rand::thread_rng();
+        let y: u64 = rng.gen(); // g
+        y
     }
 
 

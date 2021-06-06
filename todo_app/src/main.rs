@@ -47,7 +47,7 @@ fn read_option_input() -> Result<i32,&'static str> {
 
         let number : Result<i32,&str> = match user_input.trim().parse() {
             Ok(v) => Ok(v),
-            Err(error) => Err("Invalid input! Input is not a number!"),
+            Err(error) => return Err("Invalid input! Input is not a number!"),
 
         };
 
