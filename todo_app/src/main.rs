@@ -1,8 +1,5 @@
-mod todo;
-mod todo_list;
-
-use todo::Todo;
-use todo_list::TodoList;
+use todo_lib::todo::Todo;
+use todo_lib::todo_list::TodoList;
 use std::{io::{self, Read}, process};
 
 

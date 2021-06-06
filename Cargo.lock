@@ -7,7 +7,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "078e285eafdfb6c4b434e0d31e8cfcb5115b651496faca5749b88fafd4f23bfd"
 
 [[package]]
-name = "todo_list"
+name = "todo_app"
+version = "0.1.0"
+dependencies = [
+ "todo_lib",
+]
+
+[[package]]
+name = "todo_lib"
 version = "0.1.0"
 dependencies = [
  "json",
