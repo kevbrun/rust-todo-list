@@ -1,10 +1,19 @@
     use rand::prelude::*;
+    use std::fmt;
+    use std::fmt::Display;
+
 
     #[derive(Clone)]
     pub struct Todo {
         pub id: u64,
         pub name: String,
         pub description: String
+    }
+
+    impl fmt::Display for Todo{
+        fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        writeln!(f,"id: {id}\t|name: {name}\t| description: {desc}",id = self.id,name = self.name, desc = self.description)
+       }
     }
     
     impl Todo {
@@ -15,12 +24,6 @@
                 description: description
             }
         }
-
-        
-        pub fn print_todo(&self) {
-            println!("id: {id} | name: {name} | description: {desc}",id = self.id,name = self.name, desc = self.description)
-        }
-
     }
 
     fn generate_random_id() -> u64{

@@ -25,11 +25,11 @@ impl TodoList {
 
     
     pub fn print_todo_list(&self){
-        self.list.iter().for_each(|todo| todo.print_todo())
+        self.list.iter().for_each(|todo| println!("{}",todo))
      }
 
      pub fn print_todo_list_reverse(&self) {
-         self.list.iter().rev().for_each(|todo| todo.print_todo())
+         self.list.iter().rev().for_each(|todo| println!("{}",todo))
      }
 
     pub fn get_todo_by_id(&self, id : u64) -> Option<&Todo> {
